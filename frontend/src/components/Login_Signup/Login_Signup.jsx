@@ -24,8 +24,8 @@ const Login_Signup = () => {
     e.preventDefault();
 
     const apiUrl = isLogin
-      ? "http://localhost:5000/api/hr/login"
-      : "http://localhost:5000/api/hr/register";
+      ? "https://interview-task-backend.onrender.com/api/hr/login"
+      : "https://interview-task-backend.onrender.com/api/hr/register";
 
     try {
       const response = await axios.post(apiUrl, formData);

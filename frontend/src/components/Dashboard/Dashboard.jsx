@@ -27,11 +27,14 @@ const Dashboard = () => {
   // Fetch all appointments
   const fetchAppointments = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/ts/all", {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-        },
-      });
+      const response = await axios.get(
+        "https://interview-task-backend.onrender.com/api/ts/all",
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+          },
+        }
+      );
       setAppointments(response.data.data); // Accessing data array from the response
     } catch (error) {
       console.error("Error fetching appointments:", error);
@@ -61,7 +64,7 @@ const Dashboard = () => {
     if (editing) {
       try {
         await axios.put(
-          `http://localhost:5000/api/ts/update/${editId}`,
+          `https://interview-task-backend.onrender.com/api/ts/update/${editId}`,
           formData,
           {
             headers: {
@@ -78,11 +81,15 @@ const Dashboard = () => {
       }
     } else {
       try {
-        await axios.post("http://localhost:5000/api/ts/create", formData, {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-          },
-        });
+        await axios.post(
+          "https://interview-task-backend.onrender.com/api/ts/create",
+          formData,
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+            },
+          }
+        );
         setFormData({ name: "", role: "", date: "", time: "" });
         fetchAppointments(); // Refresh appointments
       } catch (error) {
@@ -94,11 +101,14 @@ const Dashboard = () => {
   // Handle delete appointment
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/ts/delete/${id}`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-        },
-      });
+      await axios.delete(
+        `https://interview-task-backend.onrender.com/api/ts/delete/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+          },
+        }
+      );
       fetchAppointments(); // Refresh appointments
     } catch (error) {
       console.error("Error deleting appointment:", error);
