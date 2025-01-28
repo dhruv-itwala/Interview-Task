@@ -35,7 +35,7 @@ const Dashboard = () => {
           },
         }
       );
-      setAppointments(response.data.data); // Accessing data array from the response
+      setAppointments(response.data.data);
     } catch (error) {
       console.error("Error fetching appointments:", error);
     }
@@ -49,7 +49,7 @@ const Dashboard = () => {
   // Validate date (no past dates allowed)
   const handleDateChange = (e) => {
     const selectedDate = e.target.value;
-    const today = new Date().toISOString().split("T")[0]; // Get today's date in YYYY-MM-DD format
+    const today = new Date().toISOString().split("T")[0];
     if (selectedDate < today) {
       alert("You cannot select a past date.");
     } else {
@@ -75,7 +75,7 @@ const Dashboard = () => {
         setEditing(false);
         setFormData({ name: "", role: "", date: "", time: "" });
         setEditId(null);
-        fetchAppointments(); // Refresh appointments
+        fetchAppointments();
       } catch (error) {
         console.error("Error updating appointment:", error);
       }
@@ -91,7 +91,7 @@ const Dashboard = () => {
           }
         );
         setFormData({ name: "", role: "", date: "", time: "" });
-        fetchAppointments(); // Refresh appointments
+        fetchAppointments();
       } catch (error) {
         console.error("Error creating appointment:", error);
       }
@@ -109,7 +109,7 @@ const Dashboard = () => {
           },
         }
       );
-      fetchAppointments(); // Refresh appointments
+      fetchAppointments();
     } catch (error) {
       console.error("Error deleting appointment:", error);
     }
@@ -168,7 +168,7 @@ const Dashboard = () => {
                 type="date"
                 name="date"
                 value={formData.date}
-                onChange={handleDateChange} // Use the handleDateChange to validate
+                onChange={handleDateChange}
                 required
               />
             </div>

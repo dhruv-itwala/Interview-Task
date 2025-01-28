@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "./Login_Signup.css"; // Assuming you have some basic styles
+import "./Login_Signup.css";
 
 const Login_Signup = () => {
   const [isLogin, setIsLogin] = useState(true); // Toggle between login and signup
