@@ -1,0 +1,17 @@
+# Ignore node_modules folder
+node_modules/
+
+# Ignore build/production files
+build/
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+
+# If you don't want to ignore certain files like package-lock.json or yarn.lock, don't add them to the ignore list
+package-lock.json
+yarn.lock
+
+# Optionally, you can keep specific files by overriding the rules above
+!src/components/**/*
+!src/custom-config.js
